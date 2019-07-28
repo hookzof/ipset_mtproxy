@@ -21,13 +21,15 @@ ipset save > /etc/backup.ipset.up.rules
 
 Сброс правил:
 ```bash
-ipset destroy (не всегда работает, самый гарантированный способ сбрасывать через перезагрузку)
+ipset destroy
 ```
-  
+(не всегда работает, самый гарантированный способ сбрасывать через перезагрузку)
+
 Установить правила:
 ```bash
-ipset restore < /etc/ipset.up.rules (путь может быть другой)
+ipset restore < /etc/ipset.up.rules
 ```
+(путь может быть другой)
 
 **IPTABLES:**
 ```bash
