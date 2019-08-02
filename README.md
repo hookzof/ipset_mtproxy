@@ -1,8 +1,8 @@
 # ipset_mtproxy
 
-**ipset.up.zip** содержит правила для ipset (свыше 1М записей), включает в себя 2 листа:
+**ipset.up.zip** содержит правила для ipset (свыше 1М записей), состоит из двух листов:
 
-<code>badhosts</code> - proxy_all.txt + IP полученные по скрипту - https://t.me/c/1301206189/5916 (накопляется по мере обновления листов firehol)<br>
+<code>badhosts</code> (накопительный) - proxy_all.txt, IP полученные по скрипту - https://t.me/c/1301206189/5916, IP публичных прокси, полученные по маске <code>IP:PORT</code> из открытых источников.<br>
 <code>countryblock</code> - госы (основная часть - https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt), из стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки), подсети DigitalOcean (возможное использование мощностей РКНом).
 <hr>
 
