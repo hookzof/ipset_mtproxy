@@ -6,10 +6,7 @@
 <code>countryblock</code> - госы (основная часть - https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt), из стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки), подсети DigitalOcean (возможное использование мощностей РКНом).
 <hr>
 
-Спарсенные прокси (https://lite.ip2location.com/database/px1-ip-country) на август 2019 года:
-
-<code>proxy_ru.txt</code> - RU список<br>
-<code>proxy_all.txt</code> - полный список
+<code>proxy_all.txt</code> - Спарсенные прокси (https://lite.ip2location.com/database/px1-ip-country) на август 2019 года:
 <hr>
 
 **IPSET:**
