@@ -5,6 +5,7 @@
 <code>badhosts</code> (накопительный) - proxy_all.txt, IP полученные по скрипту - https://t.me/c/1301206189/5916, IP публичных прокси, полученные по маске <code>IP:PORT</code> из открытых источников.<br>
 
 <code>digitalocean</code> - подсети DigitalOcean (возможное использование мощностей РКНом). <br/>
+
 <code>countryblock</code> 
 - подсети государственных учереждений причастных к блокировкам (основная часть - https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt), <br/>
 - подсети из из стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки), 
