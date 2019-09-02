@@ -2,7 +2,7 @@
 
 **ipset.up.zip** содержит правила для ipset (свыше 1М записей), состоит из 3-х листов:
 
-<code>badhosts</code> (накопительный) - proxy_all.txt, IP полученные по <a href="tg://resolve?domain=unkn0wnerror&post=1237">скрипту</a>, IP публичных прокси, полученные по маске <code>IP:PORT</code> из открытых источников;
+<code>badhosts</code> (накопительный) - proxy_all.txt, IP полученные по <a href="https://t.me/unkn0wnerror/1237">скрипту</a>, IP публичных прокси, полученные по маске <code>IP:PORT</code> из открытых источников;
 
 <code>digitalocean</code> - подсети DigitalOcean (возможное использование мощностей РКНом);
 
