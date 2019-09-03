@@ -1,6 +1,7 @@
 # ipset_mtproxy
 
-⚠️ При использовании этих правил возрастает потребление оперативной памяти от 500 МБ!
+⚠️ При использовании правил возрастает потребление оперативной памяти от 500 МБ!
+<hr>
 
 **ipset.up.zip** содержит правила для ipset (свыше 1М записей), состоит из 4-х листов:
 
@@ -53,6 +54,7 @@ ipset restore < /etc/ipset.up.rules
 iptables -A INPUT -m set --match-set badhosts src -j DROP
 iptables -A INPUT -m set --match-set digitalocean src -j DROP
 iptables -A INPUT -m set --match-set countryblock src -j DROP
+iptables -A INPUT -m set --match-set rugov src -j DROP
 
 iptables-save > /etc/rules.v4
 ```
