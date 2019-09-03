@@ -8,9 +8,9 @@
 
 <code>digitalocean</code> - подсети DigitalOcean (возможное использование мощностей РКНом);
 
-<code>countryblock</code>:
-- подсети госучреждений причастных к блокировкам (<a href="https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt">основная часть</a>);
-- подсети стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки).
+<code>countryblock</code> - подсети стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки);
+
+<code>rugov</code> - подсети госучреждений причастных к блокировкам (<a href="https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt">основная часть</a>).
 <hr>
 
 **БЫСТРАЯ УСТАНОВКА:**
