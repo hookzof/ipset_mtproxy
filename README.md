@@ -46,7 +46,10 @@ ipset destroy
 
 Установить правила:
 ```bash
-ipset restore < /etc/ipset.up.rules
+ipset restore < /opt/ipset_mtproxy/badhosts
+ipset restore < /opt/ipset_mtproxy/digitalocean
+ipset restore < /opt/ipset_mtproxy/countryblock
+ipset restore < /opt/ipset_mtproxy/rugov
 ```
 
 **IPTABLES:**
