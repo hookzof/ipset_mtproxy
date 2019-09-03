@@ -28,10 +28,10 @@ func main() {
 	log.Println("Dependency check...")
 	cmd("apt -y install git unzip ipset")
 
-	log.Println("[backup] ipset (/etc/backup.ipset.up.rules)")
 	cmd("ipset save > /etc/backup.ipset.up.rules")
-	log.Println("[backup] iptables (/etc/backup.rules.v4)")
+	log.Println("[backup] ipset (/etc/backup.ipset.up.rules)")
 	cmd("iptables-save > /etc/backup.rules.v4")
+	log.Println("[backup] iptables (/etc/backup.rules.v4)")
 
 	log.Println("Downloading and extracting...")
 	cmd("cd /opt && git clone https://github.com/hookzof/ipset_mtproxy && cd ipset_mtproxy && unzip ipset.up.zip")
@@ -75,6 +75,9 @@ func main() {
 	} else {
 		log.Println("[iptables] Rules have not been added, check startup keys")
 	}
+
+	log.Println("Delete temporary files...")
+	cmd("rm -r /opt/ipset_mtproxy")
 
 	log.Println("Done!")
 }
