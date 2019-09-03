@@ -37,29 +37,39 @@ func main() {
 	cmd("cd /opt && git clone https://github.com/hookzof/ipset_mtproxy && cd ipset_mtproxy && unzip ipset.up.zip")
 
 	log.Println("An attempt to destroy ipset and restore rules...")
-	cmd("ipset destroy && ipset restore < /opt/ipset_mtproxy/ipset.up.rules")
+	cmd("ipset destroy")
 
 	if *first {
+		cmd("ipset restore < /opt/ipset_mtproxy/badhosts")
+		log.Println("[ipset] badhosts added")
 		cmd("iptables -A INPUT -m set --match-set badhosts src -j DROP")
 		log.Println("[iptables] badhosts added")
 	}
 
 	if *second {
+		cmd("ipset restore < /opt/ipset_mtproxy/digitalocean")
+		log.Println("[ipset] digitalocean added")
 		cmd("iptables -A INPUT -m set --match-set digitalocean src -j DROP")
 		log.Println("[iptables] digitalocean added")
 	}
 
 	if *third {
+		cmd("ipset restore < /opt/ipset_mtproxy/countryblock")
+		log.Println("[ipset] countryblock added")
 		cmd("iptables -A INPUT -m set --match-set countryblock src -j DROP")
 		log.Println("[iptables] countryblock added")
 	}
 
 	if *fourth {
+		cmd("ipset restore < /opt/ipset_mtproxy/rugov")
+		log.Println("[ipset] rugov added")
 		cmd("iptables -A INPUT -m set --match-set rugov src -j DROP")
 		log.Println("[iptables] rugov added")
 	}
 
 	if *first || *second || *third || *fourth {
+		log.Println("[ipset] Saving rules... (/etc/ipset.up.rules)")
+		cmd("ipset save > /etc/ipset.up.rules")
 		log.Println("[iptables] Saving rules... (/etc/rules.v4)")
 		cmd("iptables-save > /etc/rules.v4")
 	} else {
