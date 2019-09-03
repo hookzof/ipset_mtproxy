@@ -18,7 +18,7 @@
 ```bash
 wget https://github.com/hookzof/ipset_mtproxy/raw/master/install && chmod +x install
 
-./install -badhosts -digitalocean
+./install -badhosts -digitalocean -rugov
 ```
 
 P.S. Не для многократного использования (ломается iptables и пр.)
