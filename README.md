@@ -50,6 +50,8 @@ ipset restore < /opt/ipset_mtproxy/badhosts
 ipset restore < /opt/ipset_mtproxy/digitalocean
 ipset restore < /opt/ipset_mtproxy/countryblock
 ipset restore < /opt/ipset_mtproxy/rugov
+
+ipset save > /etc/ipset.up.rules
 ```
 
 **IPTABLES:**
