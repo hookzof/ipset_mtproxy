@@ -21,6 +21,10 @@ curl -L -o install https://git.io/fjhCo && chmod +x install
 
 ./install -badhosts -digitalocean -rugov
 ```
+Ошибки, которые могут встретиться:
+
+<code>exit status 1</code> - не удалось найти строку через grep;<br>
+<code>exit status 2</code> - не удалось найти строку для удаления в iptables.
 <hr>
 
 **ФАЙЛЫ:**
