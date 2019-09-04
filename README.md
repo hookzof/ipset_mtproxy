@@ -21,8 +21,6 @@ curl -L -o install https://git.io/fjhCo && chmod +x install
 
 ./install -badhosts -digitalocean -rugov
 ```
-
-P.S. Не для многократного использования (ломается iptables и пр.)
 <hr>
 
 **ФАЙЛЫ:**
