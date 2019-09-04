@@ -36,6 +36,20 @@ func main() {
 	log.Println("Downloading and extracting...")
 	cmd("cd /opt && git clone https://github.com/hookzof/ipset_mtproxy && cd ipset_mtproxy && unzip ipset.up.zip")
 
+	check01 := cmd("iptables-save | grep 'badhosts'")
+	check02 := cmd("iptables-save | grep 'digitalocean'")
+	check03 := cmd("iptables-save | grep 'countryblock'")
+	check04 := cmd("iptables-save | grep 'rugov'")
+
+	if check01 != "" || check02 != "" || check03 != "" || check04 != "" {
+		log.Println("[iptables] Deleting rules for correct recovery...")
+
+		cmd("iptables -D INPUT -m set --match-set badhosts src -j DROP")
+		cmd("iptables -D INPUT -m set --match-set digitalocean src -j DROP")
+		cmd("iptables -D INPUT -m set --match-set countryblock src -j DROP")
+		cmd("iptables -D INPUT -m set --match-set rugov src -j DROP")
+	}
+
 	log.Println("An attempt to destroy ipset and restore rules...")
 	cmd("ipset destroy")
 
