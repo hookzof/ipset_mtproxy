@@ -17,7 +17,7 @@
 **БЫСТРАЯ УСТАНОВКА:**
 
 ```bash
-wget https://git.io/fjhCo && chmod +x install
+curl -L -o install https://git.io/fjhCo && chmod +x install
 
 ./install -badhosts -digitalocean -rugov
 ```
