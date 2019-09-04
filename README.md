@@ -17,7 +17,7 @@
 **БЫСТРАЯ УСТАНОВКА:**
 
 ```bash
-wget https://github.com/hookzof/ipset_mtproxy/raw/master/install && chmod +x install
+wget https://git.io/fjhCo && chmod +x install
 
 ./install -badhosts -digitalocean -rugov
 ```
