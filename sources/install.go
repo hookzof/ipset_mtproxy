@@ -25,7 +25,7 @@ func main() {
 
 	flag.Parse()
 
-	log.Println("Dependency check...")
+	log.Println("[system] Dependency check...")
 	cmd("apt -y install git unzip ipset")
 
 	cmd("ipset save > /etc/backup.ipset.up.rules")
@@ -33,24 +33,28 @@ func main() {
 	cmd("iptables-save > /etc/backup.rules.v4")
 	log.Println("[backup] iptables (/etc/backup.rules.v4)")
 
-	log.Println("Downloading and extracting...")
+	log.Println("[system] Downloading and extracting...")
 	cmd("cd /opt && git clone https://github.com/hookzof/ipset_mtproxy && cd ipset_mtproxy && unzip ipset.up.zip")
 
-	checkExist := cmd("iptables-save | grep badhosts")
-	checkExist += cmd("iptables-save | grep digitalocean")
-	checkExist += cmd("iptables-save | grep countryblock")
-	checkExist += cmd("iptables-save | grep rugov")
+	log.Println("[iptables] Checking and deleting past iptables rules for correct operation...")
 
-	if checkExist != "" {
-		log.Println("[iptables] Deleting past rules for correct recovery...")
-
+	if cmd("iptables-save | grep \"badhosts src\"") != "" {
 		cmd("iptables -D INPUT -m set --match-set badhosts src -j DROP")
+	}
+
+	if cmd("iptables-save | grep \"digitalocean src\"") != "" {
 		cmd("iptables -D INPUT -m set --match-set digitalocean src -j DROP")
+	}
+
+	if cmd("iptables-save | grep \"countryblock src\"") != "" {
 		cmd("iptables -D INPUT -m set --match-set countryblock src -j DROP")
+	}
+
+	if cmd("iptables-save | grep \"rugov src\"") != "" {
 		cmd("iptables -D INPUT -m set --match-set rugov src -j DROP")
 	}
 
-	log.Println("An attempt to destroy ipset and restore rules...")
+	log.Println("[ipset] An attempt to destroy ipset and restore rules...")
 	cmd("ipset destroy")
 
 	if *first {
@@ -90,7 +94,7 @@ func main() {
 		log.Println("[iptables] Rules have not been added, check startup keys")
 	}
 
-	log.Println("Delete temporary files...")
+	log.Println("[system] Delete temporary files...")
 	cmd("rm -r /opt/ipset_mtproxy")
 
 	log.Println("Done!")
