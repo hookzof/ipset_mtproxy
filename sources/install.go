@@ -16,7 +16,7 @@ func cmd(cmd string) string {
 }
 
 func main() {
-	log.Println("Starting...")
+	log.Println("Starting!")
 
 	first := flag.Bool("badhosts", false, "a bool")
 	second := flag.Bool("digitalocean", false, "a bool")
@@ -36,13 +36,13 @@ func main() {
 	log.Println("Downloading and extracting...")
 	cmd("cd /opt && git clone https://github.com/hookzof/ipset_mtproxy && cd ipset_mtproxy && unzip ipset.up.zip")
 
-	check01 := cmd("iptables-save | grep 'badhosts'")
-	check02 := cmd("iptables-save | grep 'digitalocean'")
-	check03 := cmd("iptables-save | grep 'countryblock'")
-	check04 := cmd("iptables-save | grep 'rugov'")
+	checkExist := cmd("iptables-save | grep badhosts")
+	checkExist += cmd("iptables-save | grep digitalocean")
+	checkExist += cmd("iptables-save | grep countryblock")
+	checkExist += cmd("iptables-save | grep rugov")
 
-	if check01 != "" || check02 != "" || check03 != "" || check04 != "" {
-		log.Println("[iptables] Deleting rules for correct recovery...")
+	if checkExist != "" {
+		log.Println("[iptables] Deleting past rules for correct recovery...")
 
 		cmd("iptables -D INPUT -m set --match-set badhosts src -j DROP")
 		cmd("iptables -D INPUT -m set --match-set digitalocean src -j DROP")
