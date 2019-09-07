@@ -22,6 +22,7 @@ func main() {
 	second := flag.Bool("digitalocean", false, "a bool")
 	third := flag.Bool("countryblock", false, "a bool")
 	fourth := flag.Bool("rugov", false, "a bool")
+	fifth := flag.Bool("mikrotik", false, "a bool")
 
 	flag.Parse()
 
@@ -52,6 +53,10 @@ func main() {
 
 	if cmd("iptables-save | grep \"rugov src\"") != "" {
 		cmd("iptables -D INPUT -m set --match-set rugov src -j DROP")
+	}
+
+	if cmd("iptables-save | grep \"mikrotik src\"") != "" {
+		cmd("iptables -D INPUT -m set --match-set mikrotik src -j DROP")
 	}
 
 	log.Println("[ipset] An attempt to destroy ipset and restore rules...")
@@ -85,7 +90,14 @@ func main() {
 		log.Println("[iptables] rugov added")
 	}
 
-	if *first || *second || *third || *fourth {
+	if *fifth {
+		cmd("ipset restore < /opt/ipset_mtproxy/mikrotik")
+		log.Println("[ipset] mikrotik added")
+		cmd("iptables -A INPUT -m set --match-set mikrotik src -j DROP")
+		log.Println("[iptables] mikrotik added")
+	}
+
+	if *first || *second || *third || *fourth || *fifth {
 		log.Println("[ipset] Saving rules... (/etc/ipset.up.rules)")
 		cmd("ipset save > /etc/ipset.up.rules")
 		log.Println("[iptables] Saving rules... (/etc/rules.v4)")
