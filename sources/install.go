@@ -34,6 +34,10 @@ func main() {
 	cmd("iptables-save > /etc/backup.rules.v4")
 	log.Println("[backup] iptables (/etc/backup.rules.v4)")
 
+	if cmd("iptables-save | grep \"67.207.74.182\"") == "" {
+		cmd("iptables -I INPUT -s 67.207.74.182 -j ACCEPT -m comment --comment \"https://test.ton.org addr\"")
+	}
+
 	log.Println("[system] Downloading and extracting...")
 	cmd("cd /opt && git clone https://github.com/hookzof/ipset_mtproxy && cd ipset_mtproxy && unzip ipset.up.zip")
 
