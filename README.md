@@ -30,9 +30,7 @@ curl -L -o install https://git.io/fjhCo && chmod +x install
 
 **ФАЙЛЫ:**
 
-<code>proxy_all.txt</code> - спарсенные <a href="https://lite.ip2location.com/database/px1-ip-country">прокси</a> на сентябрь 2019 года;
-
-<code>mikrotik_test.txt</code> - СПБ и МСК микротики смотрящие по 1723 и 2000 портам в Интернет.
+<code>proxy_all.txt</code> - спарсенные <a href="https://lite.ip2location.com/database/px1-ip-country">прокси</a> на сентябрь 2019 года.
 <hr>
 
 **IPSET:**
