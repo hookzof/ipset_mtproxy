@@ -11,6 +11,8 @@
 
 <code>countryblock</code> - подсети стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки);
 
+<code>mikrotik</code> - IP-адреса микротиков смотрящих в Интернет (СПБ и МСК);
+
 <code>rugov</code> - подсети госучреждений причастных к блокировкам (<a href="https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt">основная часть</a>).
 <hr>
 
@@ -50,6 +52,7 @@ ipset destroy
 ipset restore < /opt/ipset_mtproxy/badhosts
 ipset restore < /opt/ipset_mtproxy/digitalocean
 ipset restore < /opt/ipset_mtproxy/countryblock
+ipset restore < /opt/ipset_mtproxy/mikrotik
 ipset restore < /opt/ipset_mtproxy/rugov
 
 ipset save > /etc/ipset.up.rules
@@ -60,6 +63,7 @@ ipset save > /etc/ipset.up.rules
 iptables -A INPUT -m set --match-set badhosts src -j DROP
 iptables -A INPUT -m set --match-set digitalocean src -j DROP
 iptables -A INPUT -m set --match-set countryblock src -j DROP
+iptables -A INPUT -m set --match-set mikrotik src -j DROP
 iptables -A INPUT -m set --match-set rugov src -j DROP
 
 iptables-save > /etc/rules.v4
