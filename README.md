@@ -8,7 +8,7 @@
 
 <code>countryblock</code> - подсети стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки);
 
-<code>mikrotik</code> - IP-адреса микротиков смотрящих в Интернет (СПБ и МСК);
+<code>mikrotik</code> - IP-адреса микротиков смотрящих в Интернет (из городов пока что только СПб и Москва);
 
 <code>rugov</code> - подсети госучреждений причастных к блокировкам (<a href="https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt">основная часть</a>).
 <hr>
