@@ -4,11 +4,11 @@
 
 <code>badhosts</code> (накопительный) - proxy_all.txt + IP полученные по <a href="https://t.me/unkn0wnerror/1237">скрипту</a> + IP публичных прокси (**ip:port** из открытых источников);
 
-<code>digitalocean</code> - подсети DigitalOcean (возможное использование мощностей РКНом);
+<code>mikrotik</code> - IP-адреса микротиков смотрящих в Интернет (из городов пока что только СПб и Москва);
 
 <code>countryblock</code> - подсети стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки);
 
-<code>mikrotik</code> - IP-адреса микротиков смотрящих в Интернет (из городов пока что только СПб и Москва);
+<code>digitalocean</code> - подсети DigitalOcean (возможное использование мощностей РКНом);
 
 <code>rugov</code> - подсети госучреждений причастных к блокировкам (<a href="https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt">основная часть</a>).
 <hr>
@@ -18,11 +18,10 @@
 ```bash
 curl -L -o install https://git.io/fjhCo && chmod +x install
 
-./install -badhosts -digitalocean -rugov
-```
-Ошибки, которые могут встретиться:
+./install -badhosts -mikrotik -digitalocean -rugov
 
-<code>exit status 1</code> - не удалось найти строку через grep.
+[optional]: -countryblock
+```
 <hr>
 
 **ФАЙЛЫ:**
@@ -45,9 +44,9 @@ ipset destroy
 Установить правила:
 ```bash
 ipset restore < /opt/ipset_mtproxy/badhosts
-ipset restore < /opt/ipset_mtproxy/digitalocean
-ipset restore < /opt/ipset_mtproxy/countryblock
 ipset restore < /opt/ipset_mtproxy/mikrotik
+ipset restore < /opt/ipset_mtproxy/countryblock
+ipset restore < /opt/ipset_mtproxy/digitalocean
 ipset restore < /opt/ipset_mtproxy/rugov
 
 ipset save > /etc/ipset.up.rules
@@ -56,9 +55,9 @@ ipset save > /etc/ipset.up.rules
 **IPTABLES:**
 ```bash
 iptables -A INPUT -m set --match-set badhosts src -j DROP
-iptables -A INPUT -m set --match-set digitalocean src -j DROP
-iptables -A INPUT -m set --match-set countryblock src -j DROP
 iptables -A INPUT -m set --match-set mikrotik src -j DROP
+iptables -A INPUT -m set --match-set countryblock src -j DROP
+iptables -A INPUT -m set --match-set digitalocean src -j DROP
 iptables -A INPUT -m set --match-set rugov src -j DROP
 
 iptables-save > /etc/rules.v4
