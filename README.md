@@ -18,10 +18,11 @@
 ```bash
 curl -L -o install https://git.io/fjhCo && chmod +x install
 
-./install -badhosts -mikrotik -digitalocean -rugov
-
-[optional]: -countryblock
+./install -badhosts -mikrotik -countryblock -digitalocean -rugov
 ```
+[ключи]:
+
+<code>-uninstall</code> - удаление всех правил и листов с сервера.
 <hr>
 
 **ФАЙЛЫ:**
