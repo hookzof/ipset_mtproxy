@@ -26,6 +26,7 @@ func main() {
 	digitalocean := flag.Bool("digitalocean", false, "a bool")
 	rugov := flag.Bool("rugov", false, "a bool")
 
+	backup := flag.Bool("b", false, "a bool")
 	uninstall := flag.Bool("uninstall", false, "a bool")
 
 	flag.Parse()
@@ -58,10 +59,12 @@ func main() {
 		return
 	}
 
-	cmd("ipset save > /etc/backup.ipset.up.rules")
-	log.Println("[backup] ipset (/etc/backup.ipset.up.rules)")
-	cmd("iptables-save > /etc/backup.rules.v4")
-	log.Println("[backup] iptables (/etc/backup.rules.v4)")
+	if *backup {
+		cmd("ipset save > /etc/backup.ipset.up.rules")
+		log.Println("[backup] ipset (/etc/backup.ipset.up.rules)")
+		cmd("iptables-save > /etc/backup.rules.v4")
+		log.Println("[backup] iptables (/etc/backup.rules.v4)")
+	}
 
 	/* White list */
 
