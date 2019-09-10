@@ -18,7 +18,7 @@
 ```bash
 curl -L -o install https://git.io/fjhCo && chmod +x install
 
-./install -badhosts -mikrotik -countryblock -digitalocean -rugov
+./install -badhosts -mikrotik -countryblock -digitalocean -rugov -b
 ```
 [ключи]:
 
