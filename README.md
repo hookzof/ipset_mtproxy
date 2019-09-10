@@ -23,6 +23,7 @@ curl -L -o install https://git.io/fjhCo && chmod +x install
 [ключи]:
 
 <code>-b</code> - бэкап перед добавлением правил;
+
 <code>-uninstall</code> - удаление всех правил и листов с сервера.
 <hr>
 
