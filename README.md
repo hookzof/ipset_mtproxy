@@ -10,7 +10,7 @@
 
 <code>digitalocean</code> - подсети DigitalOcean (возможное использование мощностей РКНом);
 
-<code>rugov</code> - подсети госучреждений причастных к блокировкам (<a href="https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt">основная часть</a>).
+<code>rugov</code> - подсети госучреждений причастных к блокировкам (<a href="https://github.com/AntiZapret/antizapret/blob/master/blacklist4.txt">раз</a>, <a href="https://roscenzura.com/roscomsos/gosip.txt">два</a>).
 <hr>
 
 **БЫСТРАЯ УСТАНОВКА:**
