@@ -2,9 +2,9 @@
 
 **ipset.up.zip** содержит правила для ipset (свыше 1М записей), состоит из пяти листов:
 
-<code>badhosts</code> (накопительный) - proxy_all.txt + IP полученные по <a href="https://t.me/unkn0wnerror/1237">скрипту</a> + IP публичных прокси (**ip:port** из открытых источников);
+<code>badhosts</code> (накопительный) - proxy_all.txt + IP полученные по <a href="https://t.me/unkn0wnerror/1237">скрипту</a> + IP публичных прокси + <a href="https://github.com/firehol/blocklist-ipsets">листы firehol</a>;
 
-<code>mikrotik</code> - IP-адреса микротиков смотрящих в Интернет (из городов пока что только СПб и Москва);
+<code>mikrotik</code> - IP-адреса микротиков смотрящих в Интернет (<a href="https://github.com/hookzof/ipset_mtproxy/issues/2">города</a>);
 
 <code>countryblock</code> - подсети стран: Иран, Китай, Пакистан (потенциальные генераторы нагрузки);
 
