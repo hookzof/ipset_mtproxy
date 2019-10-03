@@ -1,6 +1,6 @@
 # ipset_mtproxy
 
-**ipset.up.zip** содержит правила для ipset (свыше 1М записей), состоит из пяти листов:
+**ipset.up.zip** содержит правила для ipset (свыше 1.5М записей), состоит из пяти листов:
 
 <code>badhosts</code> (накопительный) - proxy_all.txt + IP полученные по <a href="https://t.me/unkn0wnerror/1237">скрипту</a> + IP публичных прокси + <a href="https://github.com/firehol/blocklist-ipsets">листы firehol</a>;
 
@@ -29,7 +29,7 @@ curl -L -o install https://git.io/fjhCo && chmod +x install
 
 **ФАЙЛЫ:**
 
-<code>proxy_all.txt</code> - спарсенные <a href="https://lite.ip2location.com/database/px1-ip-country">прокси</a> на сентябрь 2019 года.
+<code>proxy_all.txt</code> - спарсенные <a href="https://lite.ip2location.com/database/px1-ip-country">прокси</a> на октябрь 2019 года.
 <hr>
 
 **IPSET:**
