@@ -62,8 +62,6 @@ iptables -A INPUT -m set --match-set mikrotik src -j DROP
 iptables -A INPUT -m set --match-set countryblock src -j DROP
 iptables -A INPUT -m set --match-set digitalocean src -j DROP
 iptables -A INPUT -m set --match-set rugov src -j DROP
-
-iptables-save > /etc/rules.v4
 ```
 
 Only RU:
@@ -73,6 +71,8 @@ iptables -A INPUT -m set --match-set mikrotik src -j DROP
 iptables -A INPUT -m set --match-set badhosts src -j DROP
 iptables -A INPUT -m set --match-set rugov src -j DROP
 iptables -A INPUT -j DROP
+```
 
+```bash
 iptables-save > /etc/rules.v4
 ```
